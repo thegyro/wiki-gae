@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Wiki Page</title>
+    <link type="text/css" rel="stylesheet" href="/static/main.css" />
+  </head>
+
+  <body>
+    <a href="/" class="main-title"></a>
+    
+    {% if user %}
+    <div class="login-area">
+      <a class="login-link" href="/_edit/{{id}}">edit</a>
+      |
+      <a class="login-link" href="/signup">history &nbsp</a>
+
+      {{user.name}} (<a class="login-link" href="/logout">logout</a>)
+    </div>
+
+    {% else %}
+        <div class="login-area">
+      <a class="login-link" href="/login">login</a>
+      |
+      <a class="login-link" href="/signup">signup</a>
+    </div>
+    {% endif %}
+        
+    <div id="content">
+      {{page.html | safe}}      
+    </div>
+
+  </body>
+
+</html>
